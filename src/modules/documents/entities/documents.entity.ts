@@ -13,10 +13,4 @@ export class DocumentsEntity {
 
   @Column()
   description: string;
-
-  @Column({ name: 'study_form' })
-  studyForm: string;
-
-  @Column({ name: 'level_form' })
-  levelForm: string;
 }
