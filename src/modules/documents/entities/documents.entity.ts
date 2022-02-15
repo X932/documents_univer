@@ -1,4 +1,5 @@
-import { Column, Entity, PrimaryGeneratedColumn } from 'typeorm';
+import { Column, Entity, OneToOne, PrimaryGeneratedColumn } from 'typeorm';
+import { DocumentsGroupsEntity } from '@relations-entities/documents-groups.relations';
 
 @Entity('documents')
 export class DocumentsEntity {
@@ -13,4 +14,10 @@ export class DocumentsEntity {
 
   @Column()
   description: string;
+
+  @OneToOne(
+    () => DocumentsGroupsEntity,
+    (documentsGroups) => documentsGroups.document,
+  )
+  documentsGroups: DocumentsGroupsEntity;
 }

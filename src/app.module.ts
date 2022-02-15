@@ -2,6 +2,7 @@ import { Module } from '@nestjs/common';
 import { ConfigModule } from '@nestjs/config';
 import { TypeOrmModule } from '@nestjs/typeorm';
 import { ModulesModule } from '@modules/modules.module';
+import { RelationsEntitiesModule } from '@relations-entities/relations-entities.module';
 import { AppController } from './app.controller';
 import { AppService } from './app.service';
 
@@ -19,6 +20,7 @@ import { AppService } from './app.service';
       synchronize: true,
     }),
     ModulesModule,
+    RelationsEntitiesModule,
   ],
   controllers: [AppController],
   providers: [AppService],
