@@ -1,6 +1,6 @@
 import { Module } from '@nestjs/common';
 import { TypeOrmModule } from '@nestjs/typeorm';
-import { EducationLevelsEntity } from './entity/education-levels.entity';
+import { EducationLevelsEntity } from './entities/education-levels.entity';
 
 @Module({
   imports: [TypeOrmModule.forFeature([EducationLevelsEntity])],
