@@ -1,4 +1,5 @@
-import { Column, Entity, PrimaryGeneratedColumn } from 'typeorm';
+import { Column, Entity, OneToOne, PrimaryGeneratedColumn } from 'typeorm';
+import { DocumentsSectionsEntity } from '@relations-entities/documents-sections.relation';
 
 @Entity('sections')
 export class SectionsEntity {
@@ -10,4 +11,10 @@ export class SectionsEntity {
 
   @Column()
   content: string;
+
+  @OneToOne(
+    () => DocumentsSectionsEntity,
+    (documentSection) => documentSection.section,
+  )
+  documentSection: DocumentsSectionsEntity;
 }
