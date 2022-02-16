@@ -1,6 +1,7 @@
 import { Column, Entity, OneToOne, PrimaryGeneratedColumn } from 'typeorm';
 import { DocumentsGroupsEntity } from '@relations-entities/documents-groups.relation';
 import { DocumentsSubjectsEntity } from '@relations-entities/documents-subjects.relation';
+import { DocumentsEducationLevelsEntity } from '@relations-entities/documents-education-levels.relation';
 
 @Entity('documents')
 export class DocumentsEntity {
@@ -24,7 +25,13 @@ export class DocumentsEntity {
 
   @OneToOne(
     () => DocumentsSubjectsEntity,
-    (documentsGroups) => documentsGroups.document,
+    (documentsSubjects) => documentsSubjects.document,
   )
   documentsSubjects: DocumentsSubjectsEntity;
+
+  @OneToOne(
+    () => DocumentsEducationLevelsEntity,
+    (documentsEducationLevels) => documentsEducationLevels.document,
+  )
+  documentsEducationLevels: DocumentsEducationLevelsEntity;
 }
