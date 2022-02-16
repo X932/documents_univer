@@ -29,7 +29,7 @@ export class DocumentsEntity {
     () => DocumentsGroupsEntity,
     (documentGroup) => documentGroup.documents,
   )
-  documentGroup: DocumentsGroupsEntity[];
+  documentsGroups: DocumentsGroupsEntity[];
 
   @OneToOne(
     () => DocumentsSubjectsEntity,
