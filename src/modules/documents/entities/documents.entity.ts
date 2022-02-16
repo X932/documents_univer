@@ -1,4 +1,10 @@
-import { Column, Entity, OneToOne, PrimaryGeneratedColumn } from 'typeorm';
+import {
+  Column,
+  Entity,
+  OneToMany,
+  OneToOne,
+  PrimaryGeneratedColumn,
+} from 'typeorm';
 import { DocumentsGroupsEntity } from '@relations-entities/documents-groups.relation';
 import { DocumentsSubjectsEntity } from '@relations-entities/documents-subjects.relation';
 import { DocumentsEducationLevelsEntity } from '@relations-entities/documents-education-levels.relation';
@@ -19,11 +25,11 @@ export class DocumentsEntity {
   @Column()
   description: string;
 
-  @OneToOne(
+  @OneToMany(
     () => DocumentsGroupsEntity,
-    (documentGroup) => documentGroup.document,
+    (documentGroup) => documentGroup.documents,
   )
-  documentGroup: DocumentsGroupsEntity;
+  documentGroup: DocumentsGroupsEntity[];
 
   @OneToOne(
     () => DocumentsSubjectsEntity,

@@ -2,7 +2,7 @@ import {
   Column,
   Entity,
   JoinColumn,
-  OneToOne,
+  ManyToOne,
   PrimaryGeneratedColumn,
 } from 'typeorm';
 import { DocumentsEntity } from '@modules/documents/entities/documents.entity';
@@ -12,9 +12,9 @@ export class DocumentsGroupsEntity {
   @PrimaryGeneratedColumn()
   id: number;
 
-  @OneToOne(() => DocumentsEntity, (document) => document.documentGroup)
+  @ManyToOne(() => DocumentsEntity, (document) => document.documentGroup)
   @JoinColumn({ name: 'document_id' })
-  document: DocumentsEntity;
+  documents: DocumentsEntity;
 
   @Column({ name: 'group_id' })
   groupId: number;
