@@ -3,6 +3,7 @@ import { DocumentsGroupsEntity } from '@relations-entities/documents-groups.rela
 import { DocumentsSubjectsEntity } from '@relations-entities/documents-subjects.relation';
 import { DocumentsEducationLevelsEntity } from '@relations-entities/documents-education-levels.relation';
 import { DocumentsSectionsEntity } from '@relations-entities/documents-sections.relation';
+import { DocumentsStudyFormsEntity } from '@relations-entities/documents-study-forms.relation';
 
 @Entity('documents')
 export class DocumentsEntity {
@@ -41,4 +42,10 @@ export class DocumentsEntity {
     (documentSection) => documentSection.document,
   )
   documentSection: DocumentsSectionsEntity;
+
+  @OneToOne(
+    () => DocumentsStudyFormsEntity,
+    (documentStudyForm) => documentStudyForm.document,
+  )
+  documentStudyForm: DocumentsStudyFormsEntity;
 }
