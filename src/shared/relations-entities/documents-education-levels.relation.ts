@@ -9,7 +9,7 @@ export class DocumentsEducationLevelsEntity {
 
   @OneToOne(
     () => DocumentsEntity,
-    (documents) => documents.documentsEducationLevels,
+    (document) => document.documentEducationLevel,
   )
   @JoinColumn({ name: 'document_id' })
   document: DocumentsEntity;

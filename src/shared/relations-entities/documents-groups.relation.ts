@@ -12,7 +12,7 @@ export class DocumentsGroupsEntity {
   @PrimaryGeneratedColumn()
   id: number;
 
-  @OneToOne(() => DocumentsEntity, (documents) => documents.documentsGroups)
+  @OneToOne(() => DocumentsEntity, (document) => document.documentGroup)
   @JoinColumn({ name: 'document_id' })
   document: DocumentsEntity;
 
