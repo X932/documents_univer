@@ -4,13 +4,14 @@ import {
   RmqOptions,
   Transport,
 } from '@nestjs/microservices';
+import { ServicesConfigs } from 'types-univer';
 import { AppModule } from './app.module';
 
 const microserviceOptions: RmqOptions = {
   transport: Transport.RMQ,
   options: {
-    urls: ['amqp://127.0.0.1:5672'],
-    queue: 'documents_queue',
+    urls: [ServicesConfigs.DocumentOptions.url],
+    queue: ServicesConfigs.DocumentOptions.queue,
     queueOptions: {
       durable: false,
     },
